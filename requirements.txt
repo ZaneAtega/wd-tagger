@@ -1,0 +1,6 @@
+numpy
+pandas
+onnxruntime-gpu>=1.17.0
+pillow
+uvicorn
+fastapi
