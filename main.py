@@ -5,10 +5,12 @@ from contextlib import asynccontextmanager
 import numpy as np
 from pandas import read_csv
 from onnxruntime import InferenceSession
-from PIL import Image
+from PIL import Image, ImageFile
 
 import uvicorn
 from fastapi import FastAPI, Request, HTTPException
+
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 kaomojis = [
     "0_0",
