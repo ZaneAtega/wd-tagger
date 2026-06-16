@@ -137,7 +137,7 @@ async def interrogate(request: Request):
     body = await request.json()
 
     encoding = body["image"]
-    encoding = encoding.split(";")[1].split(",")[1] if encoding.startswith("data:image/") else encoding
+    encoding = encoding.split(",")[1] if encoding.startswith("data:") else encoding
     image = Image.open(BytesIO(b64decode(encoding)))
 
     general_res, character_res = request.app.state.predictor.predict(
